@@ -1,0 +1,33 @@
+html {
+  background-image: url('./casino.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #2D8160;
+}
+
+div {
+  display: flex;
+  margin-left: 70px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 2.5em;
+}
+
+form {
+  margin-left: 70px;
+}
+
+input[type=submit] {
+    padding:5px 15px;
+    margin: 10px;
+    background:#fff;
+    height: 50px;
+    width: 120px;
+    border:0 none;
+    cursor:pointer;
+    border-radius: 3px;
+    font-size: 1em;
+}
