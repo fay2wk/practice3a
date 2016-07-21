@@ -1,3 +1,4 @@
+/* globals $ */
 $(document).ready(function () {
   $('#newdeck').on('submit', function (event) {
     // new game
@@ -12,24 +13,24 @@ $(document).ready(function () {
       success: function (deck) {
         console.log(deck.cards[0].value)
         console.log(deck.cards[1].value)
-          $('#results').append('<img src="' + deck.cards[0].images.png + '" height="250" width="190"">')
-          $('#results').append('<img src="' + deck.cards[1].images.png + '" height="250" width="190"">' + '<br>')
-          score1 = 0
-          score2 = 0
-          if (deck.cards[0].value == 'KING') {
+        $('#results').append('<img src="' + deck.cards[0].images.png + '" height="250" width="190"">')
+        $('#results').append('<img src="' + deck.cards[1].images.png + '" height="250" width="190"">' + '<br>')
+        score1 = 0
+        score2 = 0
+        if (deck.cards[0].value == 'KING') {
             score1 += 10
-          }
-          if (deck.cards[0].value == 'QUEEN') {
+        }
+        if (deck.cards[0].value == 'QUEEN') {
             score1 += 10
-          }
-          if (deck.cards[0].value == 'JACK') {
-            score1 += 10
-          }
-          else if (deck.cards[0].value === 'ACE') {
+        }
+        if (deck.cards[0].value == 'JACK') {
+           score1 += 10
+        }
+        else if (deck.cards[0].value === 'ACE') {
             score1 += 1
-          } else score1 += parseInt(deck.cards[0].value)
+        } else score1 += parseInt(deck.cards[0].value)
 
-          if (deck.cards[1].value == 'KING') {
+        if (deck.cards[1].value == 'KING') {
             score2 += 10
           }
           if (deck.cards[1].value == 'QUEEN') {
@@ -52,23 +53,22 @@ $(document).ready(function () {
     $.ajax({
       url: 'http://deckofcardsapi.com/api/deck/new/draw/?count=1',
       success: function (deck) {
-          $('#results2').append(current + '<img src="' + deck.cards[0].images.png + '" height="250" width="190"">')
-          if (deck.cards[0].value == 'KING') {
-            score += 10
+        $('#results2').append(current + '<img src="' + deck.cards[0].images.png + '" height="250" width="190"">')
+        if (deck.cards[0].value == 'KING') {
+          score += 10
+        }
+        if (deck.cards[0].value == 'QUEEN') {
+          score += 10
+        }
+        if (deck.cards[0].value == 'JACK') {
+          score += 10
+        } else if (deck.cards[0].value === 'ACE') {
+          score += 1
+        } else score += parseInt(deck.cards[0].value)
+          if (score > 21) {
+            $('#notice').append('Over 21! Game Over!')
+            console.log('Over 21!')
           }
-          if (deck.cards[0].value == 'QUEEN') {
-            score += 10
-          }
-          if (deck.cards[0].value == 'JACK') {
-            score += 10
-          }  else if (deck.cards[0].value === 'ACE') {
-            score += 1
-          } else score += parseInt(deck.cards[0].value)
-          console.log(score)
-            if(score > 21) {
-              $('#notice').append("Over 21! Game Over!")
-              console.log("Over 21!")
-            }
       }
     })
   })
