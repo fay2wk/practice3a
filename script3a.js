@@ -9,7 +9,7 @@ $(document).ready(function () {
     currentDeck = 0
     score = 0
     $.ajax({
-      url: 'http://deckofcardsapi.com/api/deck/new/draw/?count=2',
+      url: 'https://deckofcardsapi.com/api/deck/new/draw/?count=2',
       success: function (deck) {
         console.log(deck.cards[0].value)
         console.log(deck.cards[1].value)
@@ -51,7 +51,7 @@ $(document).ready(function () {
     event.preventDefault()
     current = $('#results2').val()
     $.ajax({
-      url: 'http://deckofcardsapi.com/api/deck/new/draw/?count=1',
+      url: 'https://deckofcardsapi.com/api/deck/new/draw/?count=1',
       success: function (deck) {
         $('#results2').append(current + '<img src="' + deck.cards[0].images.png + '" height="250" width="190"">')
         if (deck.cards[0].value == 'KING') {
